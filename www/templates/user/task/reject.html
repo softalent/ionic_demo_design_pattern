@@ -1,0 +1,35 @@
+<div class="bar bar-subheader bar-stable static bar-white text-center bar-bordered">
+  <h3 class="pull-left">Reject Task</h3>
+</div>
+
+<ion-list>
+  <div class="task_slide_detail">
+    <div class="task-title"><h1>{{task.title}}</h1></div>
+    <div class="task-meta text-center">
+      <button class="button button-date" ng-bind="task.taskType"></button>
+      <span class="border"></span>
+      <button class="button button-map" ng-bind="task.location.name"></button>
+    </div>
+    <label class="item item-input custom-label label-reason">
+      <textarea placeholder="Enter a note here" ng-model="rejectData.reason"></textarea>
+    </label>
+  </div>
+  <div class="row">
+    <div class="col text-right"><button class="button button-positive half-btn">Add Video</button></div>
+    <div class="col"><button class="button button-positive half-btn">Add Pic</button></div>
+  </div>
+  <!-- Uncomment these lines to enable resolution notes -->
+  <!--<div class="row">
+    <div class="col">
+      <h3 class="resolution-title">Resolution Notes</h3>
+      <div class="resolution">
+        <h4>Test Manager A1 <span class="res-date pull-right">2/20/16 3:57 AM</span></h4>
+        <p>test</p>
+      </div>
+      <div class="resolution">
+        <h4>Test Manager A2 <span class="res-date pull-right">2/20/16 3:57 AM</span></h4>
+        <p>test 2</p>
+      </div>
+    </div>
+  </div> -->
+</ion-list>

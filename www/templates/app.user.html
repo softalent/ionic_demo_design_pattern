@@ -1,0 +1,41 @@
+<div class="window-user">
+    <ion-side-menus enable-menu-with-back-views="true">
+        <ion-side-menu-content>
+            <ion-nav-bar class="bar-coordinate">
+                <ion-nav-buttons side="left">
+                    <a href="" ui-sref="app.user.home" class="home-button"></a>
+                </ion-nav-buttons>
+                <ion-nav-buttons side="right">
+                    <button class="button icon ion-plus button-balanced" ui-sref="app.user.create"></button>
+                    <button class="button button-icon button-clear ion-navicon-round" menu-toggle="right"></button>
+                </ion-nav-buttons>
+            </ion-nav-bar>
+            <!-- main user view here -->
+            <ion-nav-view ui-view=""></ion-nav-view>
+        </ion-side-menu-content>
+        <ion-side-menu side="right">
+            <ion-header-bar class="expanded">
+                <div class="item item-image padding">
+                    <img src="img/payomatic.png">
+                </div>
+            </ion-header-bar>
+            <ion-content class="stable-bg has-expanded-header">
+
+                <ion-list>
+                    <ion-item nav-clear menu-close href="" ui-sref="app.user.home">
+                        My Tasks
+                    </ion-item>
+                    <ion-item nav-clear menu-close href="" ui-sref="app.user.create">
+                        New Task
+                    </ion-item>
+                    <ion-item nav-clear menu-close href="" ng-click="logout()">
+                        Logout
+                    </ion-item>
+                </ion-list>
+
+                <ion-view ui-view="menuItems"></ion-view>
+            </ion-content>
+            <div class="menu-footer"></div>
+        </ion-side-menu>
+    </ion-side-menus>
+</div>

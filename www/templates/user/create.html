@@ -1,0 +1,101 @@
+<ion-view title="{{navTitle}}" align-title="left">
+    <ion-content>
+        <div class="bar bar-subheader bar-balanced static title-bar">
+            <h3 class="pull-left">Create a New Task</h3>
+        </div>
+        <ion-list>
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input item-stacked-label custom-label">
+                        <span class="input-label">Title</span>
+                        <input type="text" placeholder="Title of task" ng-model="title">
+                    </label>
+                </div>
+                <div class="col">
+                    <label class="item item-select item-stacked-label custom-label">
+                        <span class="input-label">Store</span>
+                        <select ng-model="store" ng-options="o._id as o.name for o in offices">
+                            <option value="">(select)</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input item-stacked-label custom-label">
+                        <span class="input-label">Description</span>
+                        <textarea placeholder="Description of task" ng-model="description"></textarea>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="item item-select item-stacked-label custom-label">
+                        <span class="input-label">Task Bucket</span>
+                        <select placeholder="(select)" ng-model="bucket" ng-options="o._id as o.name for o in buckets">
+                            <option value="">(select)</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input item-stacked-label custom-label">
+                        <ionic-datetimepicker date="currentDate" min="minDate" max="maxDate" callback="datePickerCallback" datetime="1">
+                            <button class="button button-block button-positive"> {{ currentDate | date:'MMMM/dd/yyyy' }} </button>
+                        </ionic-datetimepicker>
+                    </label>
+                    <label class="item item-input item-stacked-label custom-label">
+                        <span class="input-label">Preset Time</span>
+                    </label>
+                </div>
+                <div class="col">
+                    <label class="item item-select item-stacked-label custom-label">
+                        <span class="input-label">Due Time</span>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="item item-select item-stacked-label custom-label">
+                        <span class="input-label">Priority</span>
+                        <select ng-model="priority" ng-options="p[0] as p[1] for p in priorities">
+                          <option value="">(select)</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col">
+                    <label class="item item-select item-stacked-label custom-label">
+                        <span class="input-label">Assign To</span>
+                        <select ng-model="assignto" ng-options="o.userId as o.name for o in users">
+                            <option value="">(select)</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col">
+                    <label class="item item-select item-stacked-label custom-label">
+                        <span class="input-label">Fallback To</span>
+                        <select ng-model="fallbackto" ng-options="o.userId as o.name for o in users">
+                            <option value="">(select)</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input item-stacked-label custom-label">
+                        <span class="input-label">Attachments</span>
+                        <input type="file" ng-model="attachment"></select>
+                    </label>
+                </div>
+            </div>
+        </ion-list>
+    </ion-content>
+    <ion-footer-bar>
+        <div class="bottom_task">
+            <div class="bottom_btns">
+                <button class="button button-positive">Submit</button>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

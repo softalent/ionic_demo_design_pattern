@@ -1,0 +1,9 @@
+<ion-footer-bar>
+  <div class="row">
+    <div class="col text-center">
+      <button class="button button-balanced button-mid" ng-click="resolveTask(true)">Fully Resolve</button>
+      <button class="button button-positive button-mid" ng-click="resolveTask()">Leave Open</button>
+      <button class="button button-energized button-mid" ui-sref="app.user.task({taskId: task._id})">Cancel</button>
+    </div>
+  </div>
+</ion-footer-bar>

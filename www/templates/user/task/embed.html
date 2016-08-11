@@ -1,0 +1,112 @@
+<div class="countdown-bar" ng-class="task.priority">
+  <div class="countdown pull-left">
+    <div class="pull-left" ng-controller="CountdownController" ng-init="init(task.due)">
+      <ul class="time">
+        <li>{{ timeTillEvent.hoursLeft }}<span>Hours</span></li>
+        <li>{{ timeTillEvent.minutesLeft }}<span>Minutes</span></li>
+        <li>{{ timeTillEvent.secondsLeft }}<span>Seconds</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pull-right text-right reassigns" ng-if="task.assignToOnExpire||task.assignToEmailOnExpire">
+    <label>Reassigns</label>
+    <div class="desc">to {{task.assignToOnExpire.name||task.assignToEmailOnExpire}}</div>
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+<div class="task_slide_detail">
+
+  <div class="task-title">
+    <h1>{{task.title}}</h1>
+    <span ng-switch="task.status">
+      <span ng-switch-when="pending">Pending</span>
+      <span ng-switch-when="open">Open</span>
+      <span ng-switch-when="in-progress">In Progress</span>
+      <span ng-switch-when="resolved">Resolved</span>
+      <span ng-switch-when="unresolved">Unresolved</span>
+    </span>
+  </div>
+
+  <div class="task-meta text-center">
+    <button class="button button-date" ng-bind="task.due|date:'d MMM y'"></button>
+    <span class="border"></span>
+    <button class="button button-map" ng-bind="task.location.name"></button>
+  </div>
+
+  <div class="task-description" ng-if="!!task.description">
+    <h3 class="subtitle text-left">Description</h3>
+    <label class="item item-input item-stacked-label custom-label">
+        <textarea placeholder="Description of task">{{task.description}}</textarea>
+    </label>
+  </div>
+
+  <div class="task-pictures" ng-if="task.attachments.length">
+    <h3 class="subtitle text-left">Attachments</h3>
+    <div class="row" ng-controller="PopupController">
+      <div class="col text-center" ng-repeat="attachment in task.attachments">
+        <a href="" title="{{attachment.upload.name}}">
+          <!--
+          <span ng-if="attachment.type === 'application'" class="glyphicon glyphicon-file"></span>
+          <span ng-if="attachment.type === 'video'" class="glyphicon glyphicon-film"></span>
+          <span ng-if="attachment.type === 'image'" class="glyphicon glyphicon-picture"></span>
+          <span ng-if="attachment.type === 'text'" class="glyphicon glyphicon-list-alt"></span>
+          <span ng-if="attachment.type === 'audio'" class="glyphicon glyphicon-cd"></span>
+          -->
+          {{attachment.upload.name}}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="task-project">
+    <div ng-if="task.assignTo"><span>Assigned to:</span> {{task.assignTo.name}}</div>
+    <div ng-if="task.assignToOnExpire"><span class="border"></span><span>Assign on expire:</span> {{task.assignToOnExpire.name}}</div>
+  </div>
+  <div class="task-created"><span>Created by:</span> {{task.createdBy.name}}<span class="border"></span> <span>Date:</span> {{task.created|date:'EEEE, MMM d'}}</div>
+
+  <div class="task-due-date" ng-if="task.due"><span>Due Date:</span> <span class="border">{{task.due|date:'EEEE, MMM d'}}</span> {{task.due|date:'shortTime'}}</div>
+  <div class="task-project"><span>Project:</span> <a href="#">Update POM 123 Lobby</a></div>
+
+
+  <!-- I commented these because it's not specified where they go yet
+  <div>
+    <div class="row">
+      <div class="col col-25 text-right"><b>Bucket</b></div>
+      <div class="col col-75">{{task.taskCollection.name}}: {{task.taskType}}</div>
+    </div>
+    <div class="row" ng-if="task.assignToEmail">
+      <div class="col col-25 text-right"><b>Assigned To Email</b></div>
+      <div class="col col-75">{{task.assignToEmail}}</div>
+    </div>
+    <div class="row" ng-if="task.assignToEmailOnExpire">
+      <div class="col col-25 text-right"><b>Assign To Email On Expire</b></div>
+      <div class="col col-75">{{task.assignToEmailOnExpire}}</div>
+    </div>
+  </div> -->
+
+  
+
+  <div ng-if="task.assignmentHistory.length">
+
+    <h3 class="subtitle text-left">Assignment History</h3>
+
+    <div class="resolution">
+      <div class="row no-padding">
+        <b class="col no-padding col-33"><p>Date</p></b>
+        <b class="col no-padding col-33"><p>User</p></b>
+        <b class="col no-padding col-33"><p>Reason / Comment</p></b>
+      </div>
+    </div>
+
+    <div class="resolution" ng-repeat="assignment in task.assignmentHistory">
+      <div class="row no-padding">
+        <div class="col no-padding col-33"><p ng-bind="assignment.date|date:'short'"></p></div>
+        <div class="col no-padding col-33"><p ng-bind="assignment.user.name||assignment.email">User</p></div>
+        <div class="col no-padding col-33"><p ng-bind="assignment.reason||'No reason given'">Reason / Comment</p></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

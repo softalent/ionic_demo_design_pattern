@@ -1,0 +1,23 @@
+﻿<ion-view title="{{navTitle}}" align-title="left">
+  <ion-content>
+    <div ng-if="isTaskDefaultPage">
+      <div ng-include="'templates/user/task/embed.html'"></div>
+    </div>
+    <div ng-if="!isTaskDefaultPage">
+      <div ui-view="taskActionView"></div>
+    </div>
+  </ion-content>
+  <ion-footer-bar>
+    <div class="bottom_task">
+      <div class="bottom_btns" ng-if="isTaskDefaultPage">
+        <button class="button button-energized" ui-sref="app.user.task.reject({taskId: task._id})" ng-hide="true">Reject</button>
+        <button class="button button-balanced" ui-sref="app.user.task.resolve({taskId: task._id})">Resolve</button>
+        <button class="button button-positive" ui-sref="app.user.task.assign({taskId: task._id})">Reassign</button>
+      </div>
+
+      <div ng-if="!isTaskDefaultPage">
+        <div ui-view="taskActionButtons"></div>
+      </div>
+    </div>
+  </ion-footer-bar>
+</ion-view>

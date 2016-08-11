@@ -1,0 +1,50 @@
+{
+  "name": "coordinatemobile",
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/auth/local",
+      "proxyUrl": "http://coordinate.ticonerd.com/auth/local"
+    },
+    {
+      "path": "/api",
+      "proxyUrl": "http://coordinate.ticonerd.com/api"
+    },
+    {
+      "path": "/api/users",
+      "proxyUrl": "http://coordinate.ticonerd.com/api/users"
+    },
+    {
+      "path": "/api/clients",
+      "proxyUrl": "http://coordinate.ticonerd.com/api/clients"
+    },
+    {
+      "path": "/api/client-settings",
+      "proxyUrl": "http://coordinate.ticonerd.com/api/client-settings"
+    },
+    {
+      "path": "/api/client-regions",
+      "proxyUrl": "http://coordinate.ticonerd.com/api/client-regions"
+    },
+    {
+      "path": "/api/client-offices",
+      "proxyUrl": "http://coordinate.ticonerd.com/api/client-offices"
+    },
+    {
+      "path": "/api/client-managers",
+      "proxyUrl": "http://coordinate.ticonerd.com/api/client-managers"
+    },
+    {
+      "path": "/api/client-tasks",
+      "proxyUrl": "http://coordinate.ticonerd.com/api/client-tasks"
+    }
+  ],
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

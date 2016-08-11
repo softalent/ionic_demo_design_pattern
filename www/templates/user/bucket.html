@@ -1,0 +1,40 @@
+<ion-view title="{{navTitle}}" align-title="left">
+
+    <ion-content>
+      <div ng-if="!bucketTasks.length" class="lead-message text-center">
+        <h3 class="lead-message-head">Oops</h3>
+        <p class="lead-message-body text-muted">There are no tasks in this bucket.</p>
+      </div>
+
+      <div ng-if="bucketTasks.length > 0">
+        <ion-slide-box show-pager="false" active-slide="bucketTaskSelect.index">
+          <ion-slide class="c_slide" ng-repeat="task in bucketTasks">
+
+            <div class="bar bar-subheader bar-stable static bar-white text-center">
+              <h3 class="pull-left">{{bucketDetail.name}}</h3>
+              <div class="tasks-info pull-right">{{$index + 1}} <span>/</span> {{bucketTasks.length}}</div>
+            </div>
+
+            <div ng-include="'templates/user/task/embed.html'"></div>
+
+          </ion-slide>
+        </ion-slide-box>
+      </div>
+    </ion-content>
+    <ion-footer-bar>
+      <div class="row" ng-if="currentTask">
+        <div class="col text-center">
+          <button class="button button-assertive btn-task-action" ui-sref="app.user.task.reject({taskId: currentTask._id})">Reject</button>
+        </div>
+        <div class="col text-center">
+          <button class="button button-balanced btn-task-action" ui-sref="app.user.task.resolve({taskId: currentTask._id})">Resolve</button>
+        </div>
+        <div class="col text-center">
+          <button class="button button-positive btn-task-action" ui-sref="app.user.task.assign({taskId: currentTask._id})">Reassign</button>
+        </div>
+      </div>
+      <div class="bottom_btns" ng-if="!bucketTasks.length">
+        <button class="button button-positive" ui-sref="app.user.home">Home</button>
+      </div>
+    </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,36 @@
+<div class="bar bar-subheader bar-stable static task_title">
+  <p class="text-center">Reassign Task</p>
+</div>
+<ion-list>
+  <div class="task-title">{{task.title}}</div>
+  <div class="task-subtitle">{{task.location.name}}</div>
+
+  <label class="item item-select" ng-if="!assignData.email">
+    <span class="input-label">Assign To</span>
+
+    <select ng-model="assignData.user" ng-options="o.userId as o.name for o in users">
+      <option value="">(select)</option>
+    </select>
+  </label>
+
+  <label class="item item-input" ng-if="!assignData.user">
+    <span class="input-label">Assign To Email</span>
+    <input type="email" ng-model="assignData.email" placeholder="user@site.com"></label>
+  </label>
+
+  <label class="item item-input">
+    <div class="input-label">Due Date</div>
+    <input type="date" ng-model="assignData.due" placeholder="Due Date" required>
+    <input type="time" ng-model="assignData.due" placeholder="Due Time" required>
+  </label>
+
+  <label class="item item-input">
+    <textarea placeholder="Enter reason here" ng-model="assignData.reason"></textarea>
+  </label>
+
+  <div class="button-bar">
+    <button class="button">Add Video</button>
+    <button class="button">Add Pic</button>
+  </div>
+  <div class="task-pictures"></div>
+</ion-list>

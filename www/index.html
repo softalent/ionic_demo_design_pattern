@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Coordinate Mobile App</title>
+    <link href="lib/ionic-material/dist/ionic.material.css" rel="stylesheet" />
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="css/app.min.css" rel="stylesheet">
+    <!-- ionic/angularjs js -->
+    <script src="js/jquery.min.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-material/dist/ionic.material.min.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/geometric.js"></script>
+    <script src="js/services/helper.js"></script>
+    <script src="js/services/api.js"></script>
+    <script src="js/services/storage.js"></script>
+    <script src="js/services/auth.js"></script>
+    <script src="js/services/client.js"></script>
+    <script src="js/services/tasks.js"></script>
+    <script src="js/controllers/AppCtrl.js"></script>
+    <script src="js/controllers/AppGuestCtrl.js"></script>
+    <script src="js/controllers/AppUserCtrl.js"></script>
+    <script src="js/controllers/guest/LoginCtrl.js"></script>
+    <script src="js/controllers/user/HomeCtrl.js"></script>
+    <script src="js/controllers/user/BucketCtrl.js"></script>
+    <script src="js/controllers/user/CreateCtrl.js"></script>
+    <script src="js/controllers/user/TaskCtrl.js"></script>
+    <script src="js/controllers/user/task/AcceptCtrl.js"></script>
+    <script src="js/controllers/user/task/AssignCtrl.js"></script>
+    <script src="js/controllers/user/task/RejectCtrl.js"></script>
+    <script src="js/controllers/user/task/ResolveCtrl.js"></script>
+</head>
+<body ng-app="coordinate">
+  <div class="window-outer" ui-view=""></div>
+</body>
+</html>

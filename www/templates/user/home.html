@@ -1,0 +1,61 @@
+﻿<ion-view title="{{navTitle}}" align-title="left">
+  <ion class="bg-set"><div class="bg-overlay"></div></ion>
+  <ion-content class="white_overlay">
+    <div class="list">
+      <div class="item item-input-inset">
+        <label class="toggle toggle-balanced">
+          <input type="checkbox" checked>
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+          <span>my tasks</span>
+        </label>
+        <label class="toggle toggle-balanced">
+          <input type="checkbox" checked>
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+          <span>store/type</span>
+        </label>
+        <label class="toggle toggle-balanced">
+          <input type="checkbox">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+          <span>due today</span>
+        </label>
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="Search here">
+          <button class="button button-small button-search">
+            <i class="ion-ios-search-strong"></i>
+          </button>
+        </label>
+      </div>
+    </div>
+
+    <div class="top-tasks">
+      <div class="section-title">
+        <h3>TOP 3</h3>
+      </div>
+      <div ng-repeat="item in topTasks" class="top_task priority-{{item.priority}}">
+        <a href="" ui-sref="app.user.task({taskId: item._id})">{{item.due|countdown}} | {{item.title}}</a>
+        <div class="pull-right">
+          <a href="" ui-sref="app.user.bucket({bucketId: item.taskCollection._id})" ng-bind="item.taskCollection.name"></a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="task-list">
+          <div class="task" ng-repeat="bucket in buckets">
+            <div class="trigger" id="{{bucket._id}}" ng-click="showTaskDetails($event);"></div>
+            <h3>{{bucket.taskCount}}</h3>
+            <p>{{bucket.name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
